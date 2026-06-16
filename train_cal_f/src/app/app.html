@@ -1,0 +1,15 @@
+<h1 style="text-align: center;">{{title()}}</h1>
+<h2>สถานีต้นทาง</h2>
+<select (change)="onStartStationChange($event)">
+  @for (item of staion_list(); track $index) {
+  <option value={{item}}>{{item}}</option>
+  }
+</select>
+<h2>สถานีปลายทาง</h2>
+<select (change)="onDestinationtStationChange($event)">
+  @for (item of staion_list(); track $index) {
+  <option value={{item}}>{{item}}</option>
+  }
+</select>
+<br />
+<button (click)="onCLick()">เส้นทาง</button>

@@ -1,5 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, signal } from '@angular/core';
-import { single } from 'rxjs';
+
+export interface Station {
+  id?: string;
+  name?: string;
+}
 
 @Component({
   selector: 'app-root',
@@ -9,21 +14,42 @@ import { single } from 'rxjs';
 })
 export class App {
   protected readonly title = signal('Train Calculator');
+  private apiUrl = 'http://localhost:8080/api/station';
+
   start_station = signal<string>('');
   destination_station = signal<string>('');
-  staion_list = signal<string[]>(['volvo', 'Saab', 'opel', 'audi',]);
+
+  constructor(private http: HttpClient) { }
+
+  ngOnInit() {
+    this.fetchTodos();
+  }
+
+  stations = signal<Station[]>([]);
+
+  fetchTodos() {
+    this.http.get<Station[]>(this.apiUrl).subscribe({
+      next: (data) => this.stations.set(data),
+      error: (err) => console.error('Error:', err)
+    });
+  }
 
   onStartStationChange(event: Event) {
     const element = event.target as HTMLSelectElement;
-    console.log(element.value);
+    this.start_station.set(element.value)
   }
-  onDestinationtStationChange(event: Event) {
+
+  onDestinationStationChange(event: Event) {
     const element = event.target as HTMLSelectElement;
-    console.log(element.value);
+
+    this.destination_station.set(element.value)
   }
 
-  onCLick() {
-    console.log("cal");
+  onCalculate() {
+    console.log(this.start_station());
 
+    console.log(this.destination_station());
+
+    console.log('calculate');
   }
 }

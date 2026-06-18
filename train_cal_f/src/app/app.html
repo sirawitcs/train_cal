@@ -24,3 +24,19 @@
 
 <br />
 <button (click)="onCalculate()">เส้นทาง</button>
+
+@if (pathResult(); as r) {
+  <h3>ผลลัพธ์ ({{r.totalStations}} สถานี)</h3>
+  <div style="max-height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 8px;">
+    @for (st of r.path; track st) {
+      <div>
+        {{st}}
+        @for (ch of r.changes; track ch.at) {
+          @if (ch.at === st) {
+            <span style="color: blue;"> ⇢ เปลี่ยนไปสาย {{ch.toLine}} ({{ch.to}})</span>
+          }
+        }
+      </div>
+    }
+  </div>
+}

@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-TrainCalBApplication<train_cal_b>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.train_cal_b.TrainCalBApplication",
+            "projectName": "train_cal_b",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

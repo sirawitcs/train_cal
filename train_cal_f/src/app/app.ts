@@ -1,9 +1,15 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, signal } from '@angular/core';
 
 export interface Station {
   id?: string;
   name?: string;
+}
+
+export interface PathResult {
+  path: string[];
+  totalStations: number;
+  changes: { at: string; to: string; toLine: string }[];
 }
 
 @Component({
@@ -18,18 +24,28 @@ export class App {
 
   start_station = signal<string>('');
   destination_station = signal<string>('');
+  stations = signal<Station[]>([]);
+  pathResult = signal<PathResult | null>(null);
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.fetchTodos();
+    this.fetchStation();
   }
 
-  stations = signal<Station[]>([]);
-
-  fetchTodos() {
+  fetchStation() {
     this.http.get<Station[]>(this.apiUrl).subscribe({
       next: (data) => this.stations.set(data),
+      error: (err) => console.error('Error:', err)
+    });
+  }
+
+  calStation(start: string, destination: string) {
+    const params = new HttpParams()
+      .set('start', start)
+      .set('destination', destination);
+    this.http.post<PathResult>(`${this.apiUrl}/v4/path`, null, { params }).subscribe({
+      next: (data) => this.pathResult.set(data),
       error: (err) => console.error('Error:', err)
     });
   }
@@ -41,15 +57,10 @@ export class App {
 
   onDestinationStationChange(event: Event) {
     const element = event.target as HTMLSelectElement;
-
     this.destination_station.set(element.value)
   }
 
   onCalculate() {
-    console.log(this.start_station());
-
-    console.log(this.destination_station());
-
-    console.log('calculate');
+    this.calStation(this.start_station(), this.destination_station());
   }
 }

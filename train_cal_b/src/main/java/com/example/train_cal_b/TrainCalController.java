@@ -31,8 +31,7 @@ public class TrainCalController {
                         s -> (String) s.get("lineName")));
         this.lineArrays = Map.of(
                 "bts_sukhumvit", bts_sukhumvit, "bts_silom", bts_silom,
-                "blue_charan", blue_charan, "blue_main", blue_main,
-                "blue_south", blue_south, "purple", purple,
+                "blue", blue, "purple", purple,
                 "yellow", yellow, "pink", pink, "gold", gold);
     }
 
@@ -48,15 +47,10 @@ public class TrainCalController {
     private final List<String> bts_silom = List.of(
             "W1", "CEN", "S1", "S2", "S3", "S4", "S5", "S6", "S7", "S8", "S9", "S10", "S11", "S12");
 
-    private final List<String> blue_charan = List.of(
-            "BL01", "BL02", "BL03", "BL04", "BL05", "BL06", "BL07", "BL08", "BL09");
-
-    private final List<String> blue_main = List.of(
-            "BL32", "BL31", "BL30", "BL29", "BL28", "BL27", "BL26", "BL25", "BL24", "BL23", "BL22", "BL21", "BL20",
-            "BL19", "BL18", "BL17", "BL16", "BL15", "BL14", "BL13", "BL12", "BL11", "BL10");
-
-    private final List<String> blue_south = List.of(
-            "BL38", "BL37", "BL36", "BL35", "BL34", "BL33");
+    private final List<String> blue = List.of(
+            "BL01", "BL02", "BL03", "BL04", "BL05", "BL06", "BL07", "BL08", "BL09", "BL10", "BL11", "BL12", "BL13",
+            "BL14", "BL15", "BL16", "BL17", "BL18", "BL19", "BL20", "BL21", "BL22", "BL23", "BL24", "BL25", "BL26",
+            "BL27", "BL28", "BL29", "BL30", "BL31", "BL32", "BL33", "BL34", "BL35", "BL36", "BL37", "BL38");
 
     private final List<String> purple = List.of(
             "PP01", "PP02", "PP03", "PP04", "PP05", "PP06", "PP07", "PP08", "PP09", "PP10",
@@ -80,7 +74,7 @@ public class TrainCalController {
             new String[] { "PP16", "BL10" }, new String[] { "PP11", "PK01" },
             new String[] { "PK16", "N17" }, new String[] { "YL01", "BL15" }, new String[] { "YL23", "E15" },
             new String[] { "G1", "S7" },
-            new String[] { "BL09", "BL10" }, new String[] { "BL32", "BL33" }, new String[] { "BL01", "BL33" },
+            new String[] { "BL01", "BL33" },
             new String[] { "BL01", "BL32" });
 
     private String findLineName(String id) {
@@ -88,12 +82,8 @@ public class TrainCalController {
             return "bts_sukhumvit";
         if (bts_silom.contains(id))
             return "bts_silom";
-        if (blue_charan.contains(id))
-            return "blue_charan";
-        if (blue_main.contains(id))
-            return "blue_main";
-        if (blue_south.contains(id))
-            return "blue_south";
+        if (blue.contains(id))
+            return "blue";
         if (purple.contains(id))
             return "purple";
         if (yellow.contains(id))

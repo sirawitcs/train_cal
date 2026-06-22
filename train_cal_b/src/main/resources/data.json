@@ -2,687 +2,1023 @@
     "stations": [
         {
             "id": "N24",
-            "name": "คูคต"
+            "name": "คูคต",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "N23",
-            "name": "แยก คปอ."
+            "name": "แยก คปอ.",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "N22",
-            "name": "พิพิธภัณฑ์กองทัพอากาศ"
+            "name": "พิพิธภัณฑ์กองทัพอากาศ",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "N21",
-            "name": "โรงพยาบาลภูมิพลอดุลยเดช"
+            "name": "โรงพยาบาลภูมิพลอดุลยเดช",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "N20",
-            "name": "สะพานใหม่"
+            "name": "สะพานใหม่",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "N19",
-            "name": "สายหยุด"
+            "name": "สายหยุด",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "N18",
-            "name": "พหลโยธิน 59"
+            "name": "พหลโยธิน 59",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "N17",
-            "name": "วัดพระศรีมหาธาตุ"
+            "name": "วัดพระศรีมหาธาตุ",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "N16",
-            "name": "กรมทหารราบที่ 11"
+            "name": "กรมทหารราบที่ 11",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "N15",
-            "name": "บางบัว"
+            "name": "บางบัว",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "N14",
-            "name": "กรมป่าไม้"
+            "name": "กรมป่าไม้",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "N13",
-            "name": "มหาวิทยาลัยเกษตรศาสตร์"
+            "name": "มหาวิทยาลัยเกษตรศาสตร์",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "N12",
-            "name": "เสนานิคม"
+            "name": "เสนานิคม",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "N11",
-            "name": "รัชโยธิน"
+            "name": "รัชโยธิน",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "N10",
-            "name": "พหลโยธิน 24"
+            "name": "พหลโยธิน 24",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "N9",
-            "name": "ห้าแยกลาดพร้าว"
+            "name": "ห้าแยกลาดพร้าว",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "N8",
-            "name": "หมอชิต"
+            "name": "หมอชิต",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "N7",
-            "name": "สะพานควาย"
-        },
-        {
-            "id": "N6",
-            "name": "เสนาร่วม"
+            "name": "สะพานควาย",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "N5",
-            "name": "อารีย์"
+            "name": "อารีย์",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "N4",
-            "name": "สนามเป้า"
+            "name": "สนามเป้า",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "N3",
-            "name": "อนุสาวรีย์ชัยสมรภูมิ"
+            "name": "อนุสาวรีย์ชัยสมรภูมิ",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "N2",
-            "name": "พญาไท"
+            "name": "พญาไท",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "N1",
-            "name": "ราชเทวี"
+            "name": "ราชเทวี",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "CEN",
-            "name": "สยาม"
+            "name": "สยาม",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "E1",
-            "name": "ชิดลม"
+            "name": "ชิดลม",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "E2",
-            "name": "เพลินจิต"
+            "name": "เพลินจิต",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "E3",
-            "name": "นานา"
+            "name": "นานา",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "E4",
-            "name": "อโศก"
+            "name": "อโศก",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "E5",
-            "name": "พร้อมพงษ์"
+            "name": "พร้อมพงษ์",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "E6",
-            "name": "ทองหล่อ"
+            "name": "ทองหล่อ",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "E7",
-            "name": "เอกมัย"
+            "name": "เอกมัย",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "E8",
-            "name": "พระโขนง"
+            "name": "พระโขนง",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "E9",
-            "name": "อ่อนนุช"
+            "name": "อ่อนนุช",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "E10",
-            "name": "บางจาก"
+            "name": "บางจาก",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "E11",
-            "name": "ปุณณวิถี"
+            "name": "ปุณณวิถี",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "E12",
-            "name": "อุดมสุข"
+            "name": "อุดมสุข",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "E13",
-            "name": "บางนา"
+            "name": "บางนา",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "E14",
-            "name": "แบริ่ง"
+            "name": "แบริ่ง",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "E15",
-            "name": "สำโรง"
+            "name": "สำโรง",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "E16",
-            "name": "ปู่เจ้า"
+            "name": "ปู่เจ้า",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "E17",
-            "name": "ช้างเอราวัณ"
+            "name": "ช้างเอราวัณ",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "E18",
-            "name": "โรงเรียนนายเรือ"
+            "name": "โรงเรียนนายเรือ",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "E19",
-            "name": "ปากน้ำ"
+            "name": "ปากน้ำ",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "E20",
-            "name": "ศรีนครินทร์"
+            "name": "ศรีนครินทร์",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "E21",
-            "name": "แพรกษา"
+            "name": "แพรกษา",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "E22",
-            "name": "สายลวด"
+            "name": "สายลวด",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "E23",
-            "name": "เคหะฯ"
+            "name": "เคหะฯ",
+            "line": "bts_sukhumvit",
+            "lineName": "สายสุขุมวิท"
         },
         {
             "id": "W1",
-            "name": "สนามกีฬาแห่งชาติ"
+            "name": "สนามกีฬาแห่งชาติ",
+            "line": "bts_silom",
+            "lineName": "สายสีลม"
         },
         {
             "id": "S1",
-            "name": "ราชดำริ"
+            "name": "ราชดำริ",
+            "line": "bts_silom",
+            "lineName": "สายสีลม"
         },
         {
             "id": "S2",
-            "name": "ศาลาแดง"
+            "name": "ศาลาแดง",
+            "line": "bts_silom",
+            "lineName": "สายสีลม"
         },
         {
             "id": "S3",
-            "name": "ช่องนนทรี"
+            "name": "ช่องนนทรี",
+            "line": "bts_silom",
+            "lineName": "สายสีลม"
         },
         {
             "id": "S4",
-            "name": "เซนต์หลุยส์"
+            "name": "เซนต์หลุยส์",
+            "line": "bts_silom",
+            "lineName": "สายสีลม"
         },
         {
             "id": "S5",
-            "name": "สุรศักดิ์"
+            "name": "สุรศักดิ์",
+            "line": "bts_silom",
+            "lineName": "สายสีลม"
         },
         {
             "id": "S6",
-            "name": "สะพานตากสิน"
+            "name": "สะพานตากสิน",
+            "line": "bts_silom",
+            "lineName": "สายสีลม"
         },
         {
             "id": "S7",
-            "name": "กรุงธนบุรี"
+            "name": "กรุงธนบุรี",
+            "line": "bts_silom",
+            "lineName": "สายสีลม"
         },
         {
             "id": "S8",
-            "name": "วงเวียนใหญ่"
+            "name": "วงเวียนใหญ่",
+            "line": "bts_silom",
+            "lineName": "สายสีลม"
         },
         {
             "id": "S9",
-            "name": "โพธิ์นิมิตร"
+            "name": "โพธิ์นิมิตร",
+            "line": "bts_silom",
+            "lineName": "สายสีลม"
         },
         {
             "id": "S10",
-            "name": "ตลาดพลู"
+            "name": "ตลาดพลู",
+            "line": "bts_silom",
+            "lineName": "สายสีลม"
         },
         {
             "id": "S11",
-            "name": "วุฒากาศ"
+            "name": "วุฒากาศ",
+            "line": "bts_silom",
+            "lineName": "สายสีลม"
         },
         {
             "id": "S12",
-            "name": "บางหว้า"
+            "name": "บางหว้า",
+            "line": "bts_silom",
+            "lineName": "สายสีลม"
         },
         {
             "id": "BL01",
-            "name": "ท่าพระ"
+            "name": "ท่าพระ",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL02",
-            "name": "จรัญฯ 13"
+            "name": "จรัญฯ 13",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL03",
-            "name": "ไฟฉาย"
+            "name": "ไฟฉาย",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL04",
-            "name": "บางขุนนนท์"
+            "name": "บางขุนนนท์",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL05",
-            "name": "บางยี่ขัน"
+            "name": "บางยี่ขัน",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL06",
-            "name": "สิรินธร"
+            "name": "สิรินธร",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL07",
-            "name": "บางพลัด"
+            "name": "บางพลัด",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL08",
-            "name": "บางอ้อ"
+            "name": "บางอ้อ",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL09",
-            "name": "บางโพ"
+            "name": "บางโพ",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL10",
-            "name": "บางซื่อ"
+            "name": "บางซื่อ",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL11",
-            "name": "กำแพงเพชร"
+            "name": "กำแพงเพชร",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL12",
-            "name": "สวนจตุจักร"
+            "name": "สวนจตุจักร",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL13",
-            "name": "พหลโยธิน"
+            "name": "พหลโยธิน",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL14",
-            "name": "ลาดพร้าว"
+            "name": "ลาดพร้าว",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL15",
-            "name": "รัชดาภิเษก"
+            "name": "รัชดาภิเษก",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL16",
-            "name": "สุทธิสาร"
+            "name": "สุทธิสาร",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL17",
-            "name": "ห้วยขวาง"
+            "name": "ห้วยขวาง",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL18",
-            "name": "ศูนย์วัฒนธรรมแห่งประเทศไทย"
+            "name": "ศูนย์วัฒนธรรมแห่งประเทศไทย",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL19",
-            "name": "พระราม 9"
+            "name": "พระราม 9",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL20",
-            "name": "เพชรบุรี"
+            "name": "เพชรบุรี",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL21",
-            "name": "มักกะสัน"
+            "name": "มักกะสัน",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL22",
-            "name": "สุขุมวิท"
+            "name": "สุขุมวิท",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL23",
-            "name": "ศูนย์การประชุมแห่งชาติสิริกิติ์"
+            "name": "ศูนย์การประชุมแห่งชาติสิริกิติ์",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL24",
-            "name": "คลองเตย"
+            "name": "คลองเตย",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL25",
-            "name": "ลุมพินี"
+            "name": "ลุมพินี",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL26",
-            "name": "สีลม"
+            "name": "สีลม",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL27",
-            "name": "สามย่าน"
+            "name": "สามย่าน",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL28",
-            "name": "หัวลำโพง"
+            "name": "หัวลำโพง",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL29",
-            "name": "วัดมังกร"
+            "name": "วัดมังกร",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL30",
-            "name": "สามยอด"
+            "name": "สามยอด",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL31",
-            "name": "สนามไชย"
+            "name": "สนามไชย",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL32",
-            "name": "อิสรภาพ"
+            "name": "อิสรภาพ",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL33",
-            "name": "บางไผ่"
+            "name": "บางไผ่",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL34",
-            "name": "บางหว้า"
+            "name": "บางหว้า",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL35",
-            "name": "เพชรเกษม 48"
+            "name": "เพชรเกษม 48",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL36",
-            "name": "ภาษีเจริญ"
+            "name": "ภาษีเจริญ",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL37",
-            "name": "บางแค"
+            "name": "บางแค",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "BL38",
-            "name": "หลักสอง"
+            "name": "หลักสอง",
+            "line": "blue",
+            "lineName": "สายสีน้ำเงิน"
         },
         {
             "id": "PP01",
-            "name": "คลองบางไผ่"
+            "name": "คลองบางไผ่",
+            "line": "purple",
+            "lineName": "สายสีม่วง"
         },
         {
             "id": "PP02",
-            "name": "ตลาดบางใหญ่"
+            "name": "ตลาดบางใหญ่",
+            "line": "purple",
+            "lineName": "สายสีม่วง"
         },
         {
             "id": "PP03",
-            "name": "สามแยกบางใหญ่"
+            "name": "สามแยกบางใหญ่",
+            "line": "purple",
+            "lineName": "สายสีม่วง"
         },
         {
             "id": "PP04",
-            "name": "บางรักใหญ่"
+            "name": "บางรักใหญ่",
+            "line": "purple",
+            "lineName": "สายสีม่วง"
         },
         {
             "id": "PP05",
-            "name": "บางรักน้อยท่าอิฐ"
+            "name": "บางรักน้อยท่าอิฐ",
+            "line": "purple",
+            "lineName": "สายสีม่วง"
         },
         {
             "id": "PP06",
-            "name": "ไทรม้า"
+            "name": "ไทรม้า",
+            "line": "purple",
+            "lineName": "สายสีม่วง"
         },
         {
             "id": "PP07",
-            "name": "สะพานพระนั่งเกล้า"
+            "name": "สะพานพระนั่งเกล้า",
+            "line": "purple",
+            "lineName": "สายสีม่วง"
         },
         {
             "id": "PP08",
-            "name": "แยกนนทบุรี 1"
+            "name": "แยกนนทบุรี 1",
+            "line": "purple",
+            "lineName": "สายสีม่วง"
         },
         {
             "id": "PP09",
-            "name": "บางกระสอ"
+            "name": "บางกระสอ",
+            "line": "purple",
+            "lineName": "สายสีม่วง"
         },
         {
             "id": "PP10",
-            "name": "ศูนย์ราชการนนทบุรี"
+            "name": "ศูนย์ราชการนนทบุรี",
+            "line": "purple",
+            "lineName": "สายสีม่วง"
         },
         {
             "id": "PP11",
-            "name": "กระทรวงสาธารณสุข"
+            "name": "กระทรวงสาธารณสุข",
+            "line": "purple",
+            "lineName": "สายสีม่วง"
         },
         {
             "id": "PP12",
-            "name": "แยกติวานนท์"
+            "name": "แยกติวานนท์",
+            "line": "purple",
+            "lineName": "สายสีม่วง"
         },
         {
             "id": "PP13",
-            "name": "วงศ์สว่าง"
+            "name": "วงศ์สว่าง",
+            "line": "purple",
+            "lineName": "สายสีม่วง"
         },
         {
             "id": "PP14",
-            "name": "บางซ่อน"
+            "name": "บางซ่อน",
+            "line": "purple",
+            "lineName": "สายสีม่วง"
         },
         {
             "id": "PP15",
-            "name": "เตาปูน"
-        },
-        {
-            "id": "YL01",
-            "name": "ลาดพร้าว"
-        },
-        {
-            "id": "YL02",
-            "name": "ภาวนา"
-        },
-        {
-            "id": "YL03",
-            "name": "โชคชัย 4"
-        },
-        {
-            "id": "YL04",
-            "name": "ลาดพร้าว 71"
-        },
-        {
-            "id": "YL05",
-            "name": "ลาดพร้าว 87"
-        },
-        {
-            "id": "YL06",
-            "name": "มหาดไทย"
-        },
-        {
-            "id": "YL07",
-            "name": "ลาดพร้าว 101"
-        },
-        {
-            "id": "YL08",
-            "name": "บางกะปิ"
-        },
-        {
-            "id": "YL09",
-            "name": "แยกลำสาลี"
-        },
-        {
-            "id": "YL10",
-            "name": "ศรีกรีฑา"
-        },
-        {
-            "id": "YL11",
-            "name": "หัวหมาก"
-        },
-        {
-            "id": "YL12",
-            "name": "กลันตัน"
-        },
-        {
-            "id": "YL13",
-            "name": "ศรีนุช"
-        },
-        {
-            "id": "YL14",
-            "name": "ศรีนครินทร์ 38"
-        },
-        {
-            "id": "YL15",
-            "name": "สวนหลวง ร.9"
-        },
-        {
-            "id": "YL16",
-            "name": "ศรีอุดม"
-        },
-        {
-            "id": "YL17",
-            "name": "ศรีเอี่ยม"
-        },
-        {
-            "id": "YL18",
-            "name": "ศรีลาซาล"
-        },
-        {
-            "id": "YL19",
-            "name": "ศรีแบริ่ง"
-        },
-        {
-            "id": "YL20",
-            "name": "ศรีด่าน"
-        },
-        {
-            "id": "YL21",
-            "name": "ศรีเทพา"
-        },
-        {
-            "id": "YL22",
-            "name": "ทิพวัล"
-        },
-        {
-            "id": "YL23",
-            "name": "สำโรง"
-        },
-        {
-            "id": "PK01",
-            "name": "ศูนย์ราชการนนทบุรี"
-        },
-        {
-            "id": "PK02",
-            "name": "แคราย"
-        },
-        {
-            "id": "PK03",
-            "name": "สนามบินน้ำ"
-        },
-        {
-            "id": "PK04",
-            "name": "สามัคคี"
-        },
-        {
-            "id": "PK05",
-            "name": "กรมชลประทาน"
-        },
-        {
-            "id": "PK06",
-            "name": "แยกปากเกร็ด"
-        },
-        {
-            "id": "PK07",
-            "name": "เลี่ยงเมืองปากเกร็ด"
-        },
-        {
-            "id": "PK08",
-            "name": "แจ้งวัฒนะ-ปากเกร็ด 28"
-        },
-        {
-            "id": "PK09",
-            "name": "ศรีรัช"
-        },
-        {
-            "id": "PK10",
-            "name": "เมืองทองธานี"
-        },
-        {
-            "id": "PK11",
-            "name": "แจ้งวัฒนะ 14"
-        },
-        {
-            "id": "PK12",
-            "name": "ศูนย์ราชการเฉลิมพระเกียรทธิ์"
-        },
-        {
-            "id": "PK13",
-            "name": "โทรคมนาคมแห่งชาติ"
-        },
-        {
-            "id": "PK14",
-            "name": "หลักสี่"
-        },
-        {
-            "id": "PK15",
-            "name": "ราชภัฏพระนคร"
-        },
-        {
-            "id": "PK16",
-            "name": "วัดพระศรีมหาธาตุ"
-        },
-        {
-            "id": "PK17",
-            "name": "รามอินทรา 3"
-        },
-        {
-            "id": "PK18",
-            "name": "ลาดปลาเค้า"
-        },
-        {
-            "id": "PK19",
-            "name": "รามอินทรา กม. 4"
-        },
-        {
-            "id": "PK20",
-            "name": "มัยลาภ"
-        },
-        {
-            "id": "PK21",
-            "name": "วัชรพล"
-        },
-        {
-            "id": "PK22",
-            "name": "รามอินทรา กม. 6"
-        },
-        {
-            "id": "PK23",
-            "name": "คู้บอน"
-        },
-        {
-            "id": "PK24",
-            "name": "รามอินทรา กม. 9"
-        },
-        {
-            "id": "PK25",
-            "name": "วงแหวนรามอินทรา"
-        },
-        {
-            "id": "PK26",
-            "name": "นพรัตน์"
-        },
-        {
-            "id": "PK27",
-            "name": "บางชัน"
-        },
-        {
-            "id": "PK28",
-            "name": "เศรษฐบุตรบำเพ็ญ"
-        },
-        {
-            "id": "PK29",
-            "name": "ตลาดมีนบุรี"
-        },
-        {
-            "id": "PK30",
-            "name": "มีนบุรี"
+            "name": "เตาปูน",
+            "line": "purple",
+            "lineName": "สายสีม่วง"
         },
         {
             "id": "PP16",
-            "name": "เตาปูน"
+            "name": "เตาปูน",
+            "line": "purple",
+            "lineName": "สายสีม่วง"
+        },
+        {
+            "id": "YL01",
+            "name": "ลาดพร้าว",
+            "line": "yellow",
+            "lineName": "สายสีเหลือง"
+        },
+        {
+            "id": "YL02",
+            "name": "ภาวนา",
+            "line": "yellow",
+            "lineName": "สายสีเหลือง"
+        },
+        {
+            "id": "YL03",
+            "name": "โชคชัย 4",
+            "line": "yellow",
+            "lineName": "สายสีเหลือง"
+        },
+        {
+            "id": "YL04",
+            "name": "ลาดพร้าว 71",
+            "line": "yellow",
+            "lineName": "สายสีเหลือง"
+        },
+        {
+            "id": "YL05",
+            "name": "ลาดพร้าว 87",
+            "line": "yellow",
+            "lineName": "สายสีเหลือง"
+        },
+        {
+            "id": "YL06",
+            "name": "มหาดไทย",
+            "line": "yellow",
+            "lineName": "สายสีเหลือง"
+        },
+        {
+            "id": "YL07",
+            "name": "ลาดพร้าว 101",
+            "line": "yellow",
+            "lineName": "สายสีเหลือง"
+        },
+        {
+            "id": "YL08",
+            "name": "บางกะปิ",
+            "line": "yellow",
+            "lineName": "สายสีเหลือง"
+        },
+        {
+            "id": "YL09",
+            "name": "แยกลำสาลี",
+            "line": "yellow",
+            "lineName": "สายสีเหลือง"
+        },
+        {
+            "id": "YL10",
+            "name": "ศรีกรีฑา",
+            "line": "yellow",
+            "lineName": "สายสีเหลือง"
+        },
+        {
+            "id": "YL11",
+            "name": "หัวหมาก",
+            "line": "yellow",
+            "lineName": "สายสีเหลือง"
+        },
+        {
+            "id": "YL12",
+            "name": "กลันตัน",
+            "line": "yellow",
+            "lineName": "สายสีเหลือง"
+        },
+        {
+            "id": "YL13",
+            "name": "ศรีนุช",
+            "line": "yellow",
+            "lineName": "สายสีเหลือง"
+        },
+        {
+            "id": "YL14",
+            "name": "ศรีนครินทร์ 38",
+            "line": "yellow",
+            "lineName": "สายสีเหลือง"
+        },
+        {
+            "id": "YL15",
+            "name": "สวนหลวง ร.9",
+            "line": "yellow",
+            "lineName": "สายสีเหลือง"
+        },
+        {
+            "id": "YL16",
+            "name": "ศรีอุดม",
+            "line": "yellow",
+            "lineName": "สายสีเหลือง"
+        },
+        {
+            "id": "YL17",
+            "name": "ศรีเอี่ยม",
+            "line": "yellow",
+            "lineName": "สายสีเหลือง"
+        },
+        {
+            "id": "YL18",
+            "name": "ศรีลาซาล",
+            "line": "yellow",
+            "lineName": "สายสีเหลือง"
+        },
+        {
+            "id": "YL19",
+            "name": "ศรีแบริ่ง",
+            "line": "yellow",
+            "lineName": "สายสีเหลือง"
+        },
+        {
+            "id": "YL20",
+            "name": "ศรีด่าน",
+            "line": "yellow",
+            "lineName": "สายสีเหลือง"
+        },
+        {
+            "id": "YL21",
+            "name": "ศรีเทพา",
+            "line": "yellow",
+            "lineName": "สายสีเหลือง"
+        },
+        {
+            "id": "YL22",
+            "name": "ทิพวัล",
+            "line": "yellow",
+            "lineName": "สายสีเหลือง"
+        },
+        {
+            "id": "YL23",
+            "name": "สำโรง",
+            "line": "yellow",
+            "lineName": "สายสีเหลือง"
+        },
+        {
+            "id": "PK01",
+            "name": "ศูนย์ราชการนนทบุรี",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK02",
+            "name": "แคราย",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK03",
+            "name": "สนามบินน้ำ",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK04",
+            "name": "สามัคคี",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK05",
+            "name": "กรมชลประทาน",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK06",
+            "name": "แยกปากเกร็ด",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK07",
+            "name": "เลี่ยงเมืองปากเกร็ด",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK08",
+            "name": "แจ้งวัฒนะ-ปากเกร็ด 28",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK09",
+            "name": "ศรีรัช",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK10",
+            "name": "เมืองทองธานี",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK11",
+            "name": "แจ้งวัฒนะ 14",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK12",
+            "name": "ศูนย์ราชการเฉลิมพระเกียรทธิ์",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK13",
+            "name": "โทรคมนาคมแห่งชาติ",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK14",
+            "name": "หลักสี่",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK15",
+            "name": "ราชภัฏพระนคร",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK16",
+            "name": "วัดพระศรีมหาธาตุ",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK17",
+            "name": "รามอินทรา 3",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK18",
+            "name": "ลาดปลาเค้า",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK19",
+            "name": "รามอินทรา กม. 4",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK20",
+            "name": "มัยลาภ",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK21",
+            "name": "วัชรพล",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK22",
+            "name": "รามอินทรา กม. 6",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK23",
+            "name": "คู้บอน",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK24",
+            "name": "รามอินทรา กม. 9",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK25",
+            "name": "วงแหวนรามอินทรา",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK26",
+            "name": "นพรัตน์",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK27",
+            "name": "บางชัน",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK28",
+            "name": "เศรษฐบุตรบำเพ็ญ",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK29",
+            "name": "ตลาดมีนบุรี",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
+        },
+        {
+            "id": "PK30",
+            "name": "มีนบุรี",
+            "line": "pink",
+            "lineName": "สายสีชมพู"
         },
         {
             "id": "G1",
-            "name": "กรุงธนบุรี"
+            "name": "กรุงธนบุรี",
+            "line": "gold",
+            "lineName": "สายสีทอง"
         },
         {
             "id": "G2",
-            "name": "เจริญนคร"
+            "name": "เจริญนคร",
+            "line": "gold",
+            "lineName": "สายสีทอง"
         },
         {
             "id": "G3",
-            "name": "คลองสาม"
+            "name": "คลองสาม",
+            "line": "gold",
+            "lineName": "สายสีทอง"
         }
     ]
 }

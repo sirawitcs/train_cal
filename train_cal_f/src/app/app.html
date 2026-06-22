@@ -25,18 +25,24 @@
 <br />
 <button (click)="onCalculate()">เส้นทาง</button>
 
-@if (pathResult(); as r) {
-  <h3>ผลลัพธ์ ({{r.totalStations}} สถานี)</h3>
-  <div style="max-height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 8px;">
-    @for (st of r.path; track st) {
-      <div>
-        {{st}}
-        @for (ch of r.changes; track ch.at) {
-          @if (ch.at === st) {
-            <span style="color: blue;"> ⇢ เปลี่ยนไปสาย {{ch.toLine}} ({{ch.to}})</span>
-          }
-        }
-      </div>
+@if (pathResult(); as result) {
+<div class="result-box">
+  <h2>เส้นทาง: {{ result.total }} สถานี</h2>
+  <div class="path-flow">
+    @for (st of result.station; track $index) {
+    <span class="path-station">{{ st.name }}</span>
+    @if (!$last) {<span class="path-arrow">→</span>}
     }
   </div>
+  @if (result.changes.length) {
+  <h3>เปลี่ยนสาย</h3>
+  @for (ch of result.changes; track $index) {
+  <div class="change-item">
+    <span class="change-label">ที่ {{ ch.at }}</span>
+    <span class="change-arrow">→</span>
+    <span class="change-line">{{ ch.toLineName }}</span>
+  </div>
+  }
+  }
+</div>
 }

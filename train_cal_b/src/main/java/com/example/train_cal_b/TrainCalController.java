@@ -4,7 +4,7 @@ import tools.jackson.core.type.TypeReference;
 import tools.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
-import java.util.stream.*;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/station")
@@ -12,6 +12,8 @@ import java.util.stream.*;
 public class TrainCalController {
 
     private final List<Map<String, Object>> stations;
+    private final Map<String, String> stationNames;
+    private final Map<String, String> stationLineNames;
 
     public TrainCalController(ObjectMapper objectMapper) throws Exception {
         try (var in = getClass().getResourceAsStream("/data.json")) {
@@ -19,6 +21,14 @@ public class TrainCalController {
             })
                     .get("stations");
         }
+        this.stationNames = stations.stream()
+                .collect(Collectors.toMap(
+                        s -> (String) s.get("id"),
+                        s -> (String) s.get("name")));
+        this.stationLineNames = stations.stream()
+                .collect(Collectors.toMap(
+                        s -> (String) s.get("id"),
+                        s -> (String) s.get("lineName")));
         this.lineArrays = Map.of(
                 "bts_sukhumvit", bts_sukhumvit, "bts_silom", bts_silom,
                 "blue_charan", blue_charan, "blue_main", blue_main,
@@ -27,22 +37,10 @@ public class TrainCalController {
     }
 
     private final Map<String, List<String>> lineArrays;
-    // ponytail: static line adjacency, update if lines change
-    private final Map<String, Set<String>> lineAdj = Map.ofEntries(
-            Map.entry("bts_sukhumvit", Set.of("bts_silom", "blue_main", "pink", "yellow")),
-            Map.entry("bts_silom", Set.of("bts_sukhumvit", "blue_main", "blue_south", "gold")),
-            Map.entry("blue_charan", Set.of("blue_main", "blue_south")),
-            Map.entry("blue_main",
-                    Set.of("bts_sukhumvit", "bts_silom", "blue_charan", "blue_south", "purple", "yellow")),
-            Map.entry("blue_south", Set.of("bts_silom", "blue_charan", "blue_main")),
-            Map.entry("purple", Set.of("blue_main", "pink")),
-            Map.entry("pink", Set.of("bts_sukhumvit", "purple")),
-            Map.entry("yellow", Set.of("bts_sukhumvit", "blue_main")),
-            Map.entry("gold", Set.of("bts_silom")));
 
     private final List<String> bts_sukhumvit = List.of(
             "N24", "N23", "N22", "N21", "N20", "N19", "N18", "N17", "N16", "N15",
-            "N14", "N13", "N12", "N11", "N10", "N9", "N8", "N7", "N6", "N5",
+            "N14", "N13", "N12", "N11", "N10", "N9", "N8", "N7", "N5",
             "N4", "N3", "N2", "N1", "CEN", "E1", "E2", "E3", "E4", "E5",
             "E6", "E7", "E8", "E9", "E10", "E11", "E12", "E13", "E14", "E15",
             "E16", "E17", "E18", "E19", "E20", "E21", "E22", "E23");
@@ -76,7 +74,6 @@ public class TrainCalController {
 
     private final List<String> gold = List.of("G1", "G2", "G3");
 
-    // ponytail: list avoids Map.ofEntries duplicate-key crash (BL01 appears twice)
     private final List<String[]> ic = List.of(
             new String[] { "N8", "BL13" }, new String[] { "N9", "BL14" }, new String[] { "E4", "BL22" },
             new String[] { "S2", "BL26" }, new String[] { "S12", "BL34" },
@@ -85,68 +82,6 @@ public class TrainCalController {
             new String[] { "G1", "S7" },
             new String[] { "BL09", "BL10" }, new String[] { "BL32", "BL33" }, new String[] { "BL01", "BL33" },
             new String[] { "BL01", "BL32" });
-
-    private void appendSlice(List<String> path, List<String> slice) {
-        if (!path.isEmpty() && !slice.isEmpty() && path.get(path.size() - 1).equals(slice.get(0)))
-            slice = slice.subList(1, slice.size());
-        path.addAll(slice);
-    }
-
-    // ponytail: BFS on ≤9 line nodes
-    private List<String> routeLines(String from, String to) {
-        Queue<String> q = new LinkedList<>();
-        Map<String, String> prev = new HashMap<>();
-        Set<String> seen = new HashSet<>();
-        q.add(from);
-        seen.add(from);
-        while (!q.isEmpty()) {
-            String cur = q.poll();
-            if (cur.equals(to))
-                break;
-            for (String nxt : lineAdj.getOrDefault(cur, Set.of()))
-                if (!seen.contains(nxt)) {
-                    seen.add(nxt);
-                    prev.put(nxt, cur);
-                    q.add(nxt);
-                }
-        }
-        List<String> path = new ArrayList<>();
-        for (String at = to; at != null; at = prev.get(at))
-            path.add(at);
-        Collections.reverse(path);
-        return path;
-    }
-
-    // ponytail: scan ic list, 15 entries, O(n) per call, n never grows
-    private String[] bestTransfer(String lineA, String lineB, String curId) {
-        List<String> ids = lineArrays.get(lineA);
-        int curIdx = ids.indexOf(curId);
-        String from = curId, to = "";
-        int bestD = Integer.MAX_VALUE;
-
-        if (ids.contains("CEN") && lineArrays.get(lineB).contains("CEN")) {
-            bestD = Math.abs(curIdx - ids.indexOf("CEN"));
-            from = "CEN";
-            to = "CEN";
-        }
-
-        for (var p : ic) {
-            String aId = p[0], bId = p[1];
-            if (!ids.contains(aId) && !ids.contains(bId))
-                continue;
-            if (!lineArrays.get(lineB).contains(aId) && !lineArrays.get(lineB).contains(bId))
-                continue;
-            String sa = ids.contains(aId) ? aId : bId;
-            String sb = lineArrays.get(lineB).contains(aId) ? aId : bId;
-            int d = Math.abs(curIdx - ids.indexOf(sa));
-            if (d < bestD) {
-                bestD = d;
-                from = sa;
-                to = sb;
-            }
-        }
-        return new String[] { from, to };
-    }
 
     private String findLineName(String id) {
         if (bts_sukhumvit.contains(id))
@@ -175,135 +110,79 @@ public class TrainCalController {
         return stations;
     }
 
-    private List<String> findLineArray(String id) {
-        if (id.equals("CEN"))
-            return bts_sukhumvit;
-        if (bts_sukhumvit.contains(id))
-            return bts_sukhumvit;
-        if (bts_silom.contains(id))
-            return bts_silom;
-        if (blue_charan.contains(id))
-            return blue_charan;
-        if (blue_main.contains(id))
-            return blue_main;
-        if (blue_south.contains(id))
-            return blue_south;
-        if (purple.contains(id))
-            return purple;
-        if (yellow.contains(id))
-            return yellow;
-        if (pink.contains(id))
-            return pink;
-        if (gold.contains(id))
-            return gold;
-        return null;
-    }
-
     @PostMapping("v2/path")
-    public void calcPath(@RequestParam String start, @RequestParam String destination) {
+    public Map<String, Object> calcPath(@RequestParam String start, @RequestParam String destination) {
         start = start.trim().toUpperCase();
         destination = destination.trim().toUpperCase();
-        System.out.println(start + " " + destination);
+        System.out.println("v2: " + start + " → " + destination);
 
-        List<String> a = findLineArray(start);
-        List<String> b = findLineArray(destination);
+        var graph = buildGraph();
+        List<String> path = bfs(graph, start, destination);
+        if (path == null)
+            path = List.of();
 
-        if (a == null || b == null) {
-            System.out.println("ไม่พบข้อมูลสถานี");
-            return;
-        }
-
-        // case 1: same line
-        if (a == b) {
-            int n = Math.abs(a.indexOf(start) - a.indexOf(destination));
-            System.out.println("สายเดียวกัน: " + n + " สถานี");
-            return;
-        }
-
-        // case 2: BTS green cross (sukhumvit <-> silom via CEN)
-        if ((a == bts_sukhumvit && b == bts_silom) || (a == bts_silom && b == bts_sukhumvit)) {
-            int n = Math.abs(a.indexOf(start) - a.indexOf("CEN"))
-                    + Math.abs(b.indexOf("CEN") - b.indexOf(destination));
-            System.out.println("BTS ข้ามฝั่ง: เปลี่ยนที่สยาม, " + n + " สถานี");
-            return;
-        }
-
-        // case 3: different lines — find shortest interchange
-        int best = Integer.MAX_VALUE;
-        String bx = "", by = "";
-        for (var p : ic) {
-            String x = p[0], y = p[1];
-            if (a.contains(x) && b.contains(y)) {
-                int n = Math.abs(a.indexOf(start) - a.indexOf(x))
-                        + Math.abs(b.indexOf(y) - b.indexOf(destination));
-                if (n < best) {
-                    best = n;
-                    bx = x;
-                    by = y;
-                }
-            }
-            if (a.contains(y) && b.contains(x)) {
-                int n = Math.abs(a.indexOf(start) - a.indexOf(y))
-                        + Math.abs(b.indexOf(x) - b.indexOf(destination));
-                if (n < best) {
-                    best = n;
-                    bx = y;
-                    by = x;
-                }
-            }
-        }
-        if (best < Integer.MAX_VALUE) {
-            System.out.println("ต่างสาย: เปลี่ยนที่ " + bx + "/" + by + ", " + best + " สถานี");
-            return;
-        }
-
-        System.out.println("ขออภัย ไม่พบเส้นทางระหว่าง " + start + " กับ " + destination);
-    }
-
-    private List<String> sliceLine(String lineName, String fromId, String toId) {
-        var line = lineArrays.get(lineName);
-        int fi = line.indexOf(fromId), ti = line.indexOf(toId);
-        if (fi < ti)
-            return new ArrayList<>(line.subList(fi, ti + 1));
-        var slice = new ArrayList<>(line.subList(ti, fi + 1));
-        Collections.reverse(slice);
-        return slice;
-    }
-
-    @PostMapping("v4/path")
-    public Map<String, Object> calcPathV4(@RequestParam String start, @RequestParam String destination) {
-        start = start.trim().toUpperCase();
-        destination = destination.trim().toUpperCase();
-        System.out.println("v4: " + start + " → " + destination);
-
-        String startLine = findLineName(start);
-        String destLine = findLineName(destination);
-
-        List<String> path = new ArrayList<>();
         List<Map<String, String>> changes = new ArrayList<>();
-
-        if (startLine.equals(destLine)) {
-            appendSlice(path, sliceLine(startLine, start, destination));
-            System.out.println("สายเดียวกัน: " + (path.size() - 1) + " สถานี → " + String.join(", ", path));
-        } else {
-            List<String> lines = routeLines(startLine, destLine);
-            String curId = start;
-            for (int i = 0; i < lines.size() - 1; i++) {
-                String[] tp = bestTransfer(lines.get(i), lines.get(i + 1), curId);
-                appendSlice(path, sliceLine(lines.get(i), curId, tp[0]));
-                changes.add(Map.of("at", tp[0], "to", tp[1], "toLine", lines.get(i + 1)));
-                System.out.println("  " + lines.get(i) + " → เปลี่ยนที่ " + tp[0] + " ไป " + tp[1] + " ("
-                        + lines.get(i + 1) + ")");
-                curId = tp[1];
-            }
-            appendSlice(path, sliceLine(destLine, curId, destination));
-            System.out.println("  " + lines.get(lines.size() - 1) + " → " + destination);
-            var changeMsgs = changes.stream()
-                    .map(c -> "เปลี่ยนที่ " + c.get("at") + " → " + c.get("toLine"))
-                    .collect(java.util.stream.Collectors.joining(", "));
-            System.out.println("รวม " + path.size() + " สถานี" + (changes.isEmpty() ? "" : " (" + changeMsgs + ")"));
+        String prevLine = null;
+        for (String id : path) {
+            String line = findLineName(id);
+            if (prevLine != null && !prevLine.equals(line))
+                changes.add(Map.of(
+                        "at", stationNames.get(id),
+                        "to", id,
+                        "toLine", line,
+                        "toLineName", stationLineNames.get(id)));
+            prevLine = line;
         }
 
-        return Map.of("path", path, "totalStations", path.size(), "changes", changes);
+        var stationObjects = path.stream()
+                .map(id -> Map.of(
+                        "id", id,
+                        "name", stationNames.get(id),
+                        "lineName", stationLineNames.get(id)))
+                .toList();
+
+        return Map.of("station", stationObjects, "total", path.size(), "changes", changes);
     }
+
+    private List<String> bfs(Map<String, Set<String>> graph, String start, String end) {
+        Queue<String> q = new LinkedList<>();
+        Map<String, String> prev = new HashMap<>();
+        Set<String> seen = new HashSet<>();
+        q.add(start);
+        seen.add(start);
+        prev.put(start, null);
+        while (!q.isEmpty()) {
+            String cur = q.poll();
+            if (cur.equals(end))
+                break;
+            for (String nxt : graph.getOrDefault(cur, Set.of()))
+                if (!seen.contains(nxt)) {
+                    seen.add(nxt);
+                    prev.put(nxt, cur);
+                    q.add(nxt);
+                }
+        }
+        List<String> path = new ArrayList<>();
+        for (String at = end; at != null; at = prev.get(at))
+            path.add(at);
+        Collections.reverse(path);
+        return path.get(0).equals(start) ? path : null;
+    }
+
+    private HashMap<String, Set<String>> buildGraph() {
+        HashMap<String, Set<String>> graph = new HashMap<>();
+        for (var entry : lineArrays.entrySet()) {
+            var ids = entry.getValue();
+            for (int i = 0; i < ids.size() - 1; i++) {
+                graph.computeIfAbsent(ids.get(i), k -> new HashSet<>()).add(ids.get(i + 1));
+                graph.computeIfAbsent(ids.get(i + 1), k -> new HashSet<>()).add(ids.get(i));
+            }
+        }
+        for (var pair : ic) {
+            graph.computeIfAbsent(pair[0], k -> new HashSet<>()).add(pair[1]);
+            graph.computeIfAbsent(pair[1], k -> new HashSet<>()).add(pair[0]);
+        }
+        return graph;
+    }
+
 }

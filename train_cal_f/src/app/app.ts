@@ -7,9 +7,11 @@ export interface Station {
 }
 
 export interface PathResult {
-  path: string[];
-  totalStations: number;
-  changes: { at: string; to: string; toLine: string }[];
+  station: { id: string; name: string }[];
+  total: number;
+  changes: {
+    toLineName: any; at: string; to: string; toLine: string
+  }[];
 }
 
 @Component({
@@ -44,7 +46,7 @@ export class App {
     const params = new HttpParams()
       .set('start', start)
       .set('destination', destination);
-    this.http.post<PathResult>(`${this.apiUrl}/v4/path`, null, { params }).subscribe({
+    this.http.post<PathResult>(`${this.apiUrl}/v2/path`, null, { params }).subscribe({
       next: (data) => this.pathResult.set(data),
       error: (err) => console.error('Error:', err)
     });

@@ -86,8 +86,8 @@ public class TrainCalController {
     private static final int[] FARE_BLUE = { 17, 20, 22, 25, 27, 29, 32, 34, 37, 39, 42, 44 };
     private static final int[] FARE_YELLOW = { 15, 18, 23, 28, 30, 34, 37, 41, 44, 45 };
     private static final int[] FARE_PINK = { 15, 18, 23, 28, 30, 34, 37, 41, 44, 45 };
-    private static final int[] FARE_MAIN_BTS = { 17, 19, 22, 24, 27, 29, 32, 34, 37, 39, 42, 44, 45 };
-    private static final int[] FARE_ADDITIONAL_BTS = { 17, 25, 28, 32, 35, 40, 43, 47 };
+    private static final int[] FARE_MAIN_BTS = { 17, 25, 28, 32, 35, 40, 43, 47 };
+    private static final int[] FARE_ADDITIONAL_BTS = { 17, 19, 22, 24, 27, 29, 32, 34, 37, 39, 42, 44, 45 };
     private static final int FARE_GOLD = 17;
 
     private String findLineName(String id) {
@@ -150,15 +150,19 @@ public class TrainCalController {
             path = List.of();
 
         List<Map<String, String>> changes = new ArrayList<>();
+        String prevId = null;
         String prevLine = null;
         for (String id : path) {
             String line = findLineName(id);
-            if (prevLine != null && !prevLine.equals(line))
+            if (prevLine != null && !prevLine.equals(line)) {
+                String atId = lineArrays.get(line).contains(prevId) ? prevId : id;
                 changes.add(Map.of(
-                        "at", stationNames.get(id),
-                        "to", id,
+                        "at", stationNames.get(atId),
+                        "to", atId,
                         "toLine", line,
                         "toLineName", stationLineNames.get(id)));
+            }
+            prevId = id;
             prevLine = line;
         }
 
@@ -201,8 +205,9 @@ public class TrainCalController {
         }
         List<String> path = new ArrayList<>();
         for (String at = end; at != null; at = prev.get(at)) {
+            if (!path.isEmpty())
+                findLineNameFare(at);
             path.add(at);
-            findLineNameFare(at);
             String prevId = prev.get(at);
             if (prevId != null) {
                 String curLine = findLineName(at);
@@ -235,15 +240,16 @@ public class TrainCalController {
     }
 
     private int calcFare() {
-        System.out.println(blue_count);
-        bts_main_count = lookup(FARE_MAIN_BTS, bts_main_count - 1);
-        blue_count = lookup(FARE_BLUE, blue_count - 1);
-        purple_count = lookup(FARE_PURPLE, purple_count - 1);
-        yellow_count = lookup(FARE_YELLOW, yellow_count - 1);
-        pink_count = lookup(FARE_PINK, pink_count - 1);
+        System.out.println(bts_main_count);
+        System.out.println(bts_additional_count);
+        bts_main_count = lookup(FARE_MAIN_BTS, bts_main_count);
+        blue_count = lookup(FARE_BLUE, blue_count);
+        purple_count = lookup(FARE_PURPLE, purple_count);
+        yellow_count = lookup(FARE_YELLOW, yellow_count);
+        pink_count = lookup(FARE_PINK, pink_count);
         if (gold_count > 0)
             gold_count = FARE_GOLD;
-        bts_additional_count = lookup(FARE_ADDITIONAL_BTS, bts_additional_count - 1);
+        bts_additional_count = lookup(FARE_ADDITIONAL_BTS, bts_additional_count);
         int bts_cal = Math.min(bts_main_count + bts_additional_count, 65) + gold_count;
 
         int yp_fare = yellow_count + pink_count;
@@ -259,7 +265,7 @@ public class TrainCalController {
         if (n < 0) {
             return 0;
         } else if (n == 0)
-            return table[0];
+            return 0;
         else if (n <= table.length) {
             result = table[n - 1];
         } else {

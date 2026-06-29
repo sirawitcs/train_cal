@@ -240,8 +240,6 @@ public class TrainCalController {
     }
 
     private int calcFare() {
-        System.out.println(bts_main_count);
-        System.out.println(bts_additional_count);
         bts_main_count = lookup(FARE_MAIN_BTS, bts_main_count);
         blue_count = lookup(FARE_BLUE, blue_count);
         purple_count = lookup(FARE_PURPLE, purple_count);

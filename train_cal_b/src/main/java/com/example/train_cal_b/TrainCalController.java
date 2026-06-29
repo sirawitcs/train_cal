@@ -219,7 +219,6 @@ public class TrainCalController {
             }
         }
         Collections.reverse(path);
-        System.out.println(path);
         return path.get(0).equals(start) ? path : null;
     }
 

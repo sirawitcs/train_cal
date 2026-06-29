@@ -9,6 +9,7 @@ export interface Station {
 export interface PathResult {
   station: { id: string; name: string }[];
   total: number;
+  fare: number;
   changes: {
     toLineName: any; at: string; to: string; toLine: string
   }[];

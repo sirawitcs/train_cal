@@ -68,6 +68,11 @@ public class TrainCalController {
 
     private final List<String> gold = List.of("G1", "G2", "G3");
 
+    private final List<String> bts_main = List.of(
+            "N8", "N7", "N5",
+            "N4", "N3", "N2", "N1", "CEN", "E1", "E2", "E3", "E4", "E5",
+            "E6", "E7", "E8", "E9", "W1", "CEN", "S1", "S2", "S3", "S4", "S5", "S6");
+
     private final List<String[]> ic = List.of(
             new String[] { "N8", "BL13" }, new String[] { "N9", "BL14" }, new String[] { "E4", "BL22" },
             new String[] { "S2", "BL26" }, new String[] { "S12", "BL34" },
@@ -76,6 +81,14 @@ public class TrainCalController {
             new String[] { "G1", "S7" },
             new String[] { "BL01", "BL33" },
             new String[] { "BL01", "BL32" });
+
+    private static final int[] FARE_PURPLE = { 14, 17, 20, 21, 25, 27, 30, 32, 35, 36, 38, 38 };
+    private static final int[] FARE_BLUE = { 17, 20, 22, 25, 27, 29, 32, 34, 37, 39, 42, 44 };
+    private static final int[] FARE_YELLOW = { 15, 18, 23, 28, 30, 34, 37, 41, 44, 45 };
+    private static final int[] FARE_PINK = { 15, 18, 23, 28, 30, 34, 37, 41, 44, 45 };
+    private static final int[] FARE_MAIN_BTS = { 17, 19, 22, 24, 27, 29, 32, 34, 37, 39, 42, 44, 45 };
+    private static final int[] FARE_ADDITIONAL_BTS = { 17, 25, 28, 32, 35, 40, 43, 47 };
+    private static final int FARE_GOLD = 17;
 
     private String findLineName(String id) {
         if (bts_sukhumvit.contains(id))
@@ -95,6 +108,32 @@ public class TrainCalController {
         return null;
     }
 
+    private static int bts_main_count = 0;
+    private static int blue_count = 0;
+    private static int purple_count = 0;
+    private static int yellow_count = 0;
+    private static int pink_count = 0;
+    private static int gold_count = 0;
+    private static int bts_additional_count = 0;
+    private int mrtToYpCount;
+
+    private void findLineNameFare(String id) {
+        if (bts_main.contains(id))
+            bts_main_count += 1;
+        else if (blue.contains(id))
+            blue_count += 1;
+        else if (purple.contains(id))
+            purple_count += 1;
+        else if (yellow.contains(id))
+            yellow_count += 1;
+        else if (pink.contains(id))
+            pink_count += 1;
+        else if (gold.contains(id))
+            gold_count += 1;
+        else
+            bts_additional_count += 1;
+    }
+
     @GetMapping
     public List<Map<String, Object>> getAll() {
         return stations;
@@ -104,7 +143,6 @@ public class TrainCalController {
     public Map<String, Object> calcPath(@RequestParam String start, @RequestParam String destination) {
         start = start.trim().toUpperCase();
         destination = destination.trim().toUpperCase();
-        System.out.println("v2: " + start + " → " + destination);
 
         var graph = buildGraph();
         List<String> path = bfs(graph, start, destination);
@@ -131,13 +169,22 @@ public class TrainCalController {
                         "lineName", stationLineNames.get(id)))
                 .toList();
 
-        return Map.of("station", stationObjects, "total", path.size(), "changes", changes);
+        return Map.of("station", stationObjects, "total", path.size() - 1, "changes", changes, "fare", calcFare());
     }
 
     private List<String> bfs(Map<String, Set<String>> graph, String start, String end) {
         Queue<String> q = new LinkedList<>();
         Map<String, String> prev = new HashMap<>();
         Set<String> seen = new HashSet<>();
+        bts_main_count = 0;
+        blue_count = 0;
+        purple_count = 0;
+        yellow_count = 0;
+        pink_count = 0;
+        gold_count = 0;
+        bts_additional_count = 0;
+        mrtToYpCount = 0;
+
         q.add(start);
         seen.add(start);
         prev.put(start, null);
@@ -153,9 +200,21 @@ public class TrainCalController {
                 }
         }
         List<String> path = new ArrayList<>();
-        for (String at = end; at != null; at = prev.get(at))
+        for (String at = end; at != null; at = prev.get(at)) {
             path.add(at);
+            findLineNameFare(at);
+            String prevId = prev.get(at);
+            if (prevId != null) {
+                String curLine = findLineName(at);
+                String prevLine = findLineName(prevId);
+                if ((curLine.equals("yellow") || curLine.equals("pink"))
+                        && (prevLine.equals("blue") || prevLine.equals("purple"))) {
+                    mrtToYpCount++;
+                }
+            }
+        }
         Collections.reverse(path);
+        System.out.println(path);
         return path.get(0).equals(start) ? path : null;
     }
 
@@ -173,6 +232,40 @@ public class TrainCalController {
             graph.computeIfAbsent(pair[1], k -> new HashSet<>()).add(pair[0]);
         }
         return graph;
+    }
+
+    private int calcFare() {
+        System.out.println(blue_count);
+        bts_main_count = lookup(FARE_MAIN_BTS, bts_main_count - 1);
+        blue_count = lookup(FARE_BLUE, blue_count - 1);
+        purple_count = lookup(FARE_PURPLE, purple_count - 1);
+        yellow_count = lookup(FARE_YELLOW, yellow_count - 1);
+        pink_count = lookup(FARE_PINK, pink_count - 1);
+        if (gold_count > 0)
+            gold_count = FARE_GOLD;
+        bts_additional_count = lookup(FARE_ADDITIONAL_BTS, bts_additional_count - 1);
+        int bts_cal = Math.min(bts_main_count + bts_additional_count, 65) + gold_count;
+
+        int yp_fare = yellow_count + pink_count;
+        if (yp_fare > 0 && mrtToYpCount > 0)
+            yp_fare *= -15;
+        int mrt_cal = blue_count + purple_count
+                - (blue_count > 0 && purple_count > 0 ? 14 : 0);
+        return bts_cal + mrt_cal + yp_fare;
+    }
+
+    private int lookup(int[] table, int n) {
+        int result = 0;
+        if (n < 0) {
+            return 0;
+        } else if (n == 0)
+            return table[0];
+        else if (n <= table.length) {
+            result = table[n - 1];
+        } else {
+            result = table[table.length - 1];
+        }
+        return result;
     }
 
 }

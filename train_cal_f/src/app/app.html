@@ -5,7 +5,7 @@
   <option value="" disabled selected>เลือกสถานี</option>
   @for (st of stations(); track st.id) {
   @if (st.name) {
-  <option [value]="st.id">{{ st.name }}</option>
+  <option [value]="st.id">({{st.id}}){{ st.name }}</option>
   }
   }
 </select>
@@ -17,7 +17,7 @@
 
 
   @if (st.name&&(st.id!=start_station())) {
-  <option [value]="st.id">{{ st.name }}</option>
+  <option [value]="st.id">({{st.id}}){{ st.name }}</option>
   }
   }
 </select>
@@ -34,6 +34,7 @@
     @if (!$last) {<span class="path-arrow">→</span>}
     }
   </div>
+  <p>ค่าโดยสาร: {{ result.fare }} บาท</p>
   @if (result.changes.length) {
   <h3>เปลี่ยนสาย</h3>
   @for (ch of result.changes; track $index) {

@@ -262,9 +262,7 @@ public class TrainCalController {
 
     private int lookup(int[] table, int n) {
         int result = 0;
-        if (n < 0) {
-            return 0;
-        } else if (n == 0)
+        if (n <= 0)
             return 0;
         else if (n <= table.length) {
             result = table[n - 1];
